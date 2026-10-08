@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llibres</title>
+    <link rel="stylesheet" href="/css/books.css">
+</head>
+<body>
+    <header class="page-header">
+        <p>Aquest és un text amb estil i un enllaç:</p>
+        <a href="/">Home</a>
+    </header>
+
+    <main class="container">
+        <h1>Llista de Llibres</h1>
+
+        <% if (books.length) { %>
+            <ul class="book-list">
+                <% books.forEach((book) => { %>
+                    <li class="book-item">
+                        <strong><%= book.title %></strong>
+                        <span class="author">Autor: <%= book.author %></span>
+                        <span class="price">Preu: €<%= book.price %></span>
+                        <a href="/books/<%= book.id %>">Detall llibre</a>
+                        <a href="/books/<%= book.id %>/edit">Editar llibre</a>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>No hi ha llibres disponibles.</p>
+        <% } %>
+    </main>
+</body>
+</html>
